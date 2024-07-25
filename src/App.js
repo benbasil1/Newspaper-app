@@ -1,23 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import Nav from './components/Nav';
+import Addsub from './components/Addsub';
+import Viewsub from './components/Viewsub';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Searchsub from './components/Searchsub';
+import Deletesub from './components/Deletesub';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Nav/>
+      <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Addsub/>}/>
+        <Route path='view' element={<Viewsub/>}/>
+        <Route path='search' element={<Searchsub/>}/>
+        <Route path='delete' element={< Deletesub/>}/>
+        
+
+      </Routes>
+      </BrowserRouter>
     </div>
   );
 }
